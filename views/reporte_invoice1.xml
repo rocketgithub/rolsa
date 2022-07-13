@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="reporte_account_invoice1">
+       <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="article">
+                    <div class="page" style="font-size: 85%">
+
+                      <!-- Pedido no. -->
+                      <div style="position: absolute; top: 3.8cm; left: 2cm; font-size: 110%; font-weight:bold; width: 8cm">
+                        <span style="font-family: monospace!important" t-field="o.invoice_origin"/>
+                      </div>
+
+                      <!-- vendedor. -->
+                      <div style="position: absolute; top: 3.8cm; left: 4cm; font-size: 110%; font-weight:bold; width: 8cm">
+                        <span style="font-family: monospace!important" t-field="o.invoice_user_id.name"/>
+                      </div>
+
+                      <!-- facturado -->
+
+                      <!-- condiciones de pago -->
+
+                      <div style="position: absolute; top: 3.8cm; left: 10cm; font-size: 110%; font-weight:bold; width: 8cm">
+                        <t t-if="o.invoice_payment_term_id">
+                            <span style="font-family: monospace!important" t-field="o.invoice_payment_term_id.name"/>
+                        </t>
+                      </div>
+
+                      <!-- codigo cliente -->
+                      <div style="position: absolute; top: 3.8cm; left: 14cm; font-size: 110%; font-weight:bold; width: 8cm">
+                        <span style="font-family: monospace!important" t-field="o.partner_id.ref"/>
+                      </div>
+
+                        <!-- fecha -->
+                        <div style="position: absolute; top: 3.9cm; left: 16.6cm; font-size: 110%; font-weight:bold">
+                            <span t-field="o.invoice_date"/>
+                        </div>
+
+                        <!-- nombre cliente -->
+                        <div style="position: absolute; top: 4.8cm; left: 5cm; font-size: 110%; font-weight:bold; width: 8cm">
+                          <span style="font-family: monospace!important" t-field="o.partner_id.name"/>
+                        </div>
+
+                        <!-- nit cliente -->
+                        <div style="position: absolute; top: 4.8cm; left: 15cm; font-size: 110%; font-weight:bold">
+                            <span t-field="o.partner_id.vat"/>
+                        </div>
+
+                        <!-- direccion -->
+                        <div style="position: absolute; top: 6.8cm; left: 5cm; font-size: 80%; width: 8cm; font-weight:bold">
+                            <span t-esc="o.partner_id.street"/>  <span t-esc="o.partner_id.street2"/>
+                        </div>
+
+                        <!-- registro no -->
+                        <div style="position: absolute; top: 7cm; left: 5cm; font-size: 80%; width: 8cm; font-weight:bold">
+                            <span t-esc="o.partner_id.dui"/>
+                        </div>
+
+                        <!-- giro -->
+                        <div style="position: absolute; top: 7cm; left: 5cm; font-size: 80%; width: 8cm; font-weight:bold">
+                            <t t-if="o.partner_id.giro_negocio_id">
+                                <span t-esc="o.partner_id.giro_negocio_id.name"/>
+                            </t>
+                        </div>
+                        <t t-set="total_ventas_no_sujetas" t-as="0"/>
+                        <t t-set="total_ventas_exentas" t-as="0"/>
+                        <t t-set="total_ventas_gravadas" t-as="0"/>
+                        <div style="position: absolute; top: 10.5cm; left: 2cm">
+                        <table>
+                            <tbody>
+                                <tr t-foreach="o.invoice_line_ids" t-as="l">
+                                    <td style="width: 3cm; font-size: 110%; font-weight:bold">
+                                        <span t-field="l.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    </td>
+                                    <td style="width: 6cm; font-size: 100%; font-weight:bold">
+                                        <span t-field="l.product_id.default_code"/>
+                                    </td>
+                                    <td style="width: 5.8cm; font-size: 110%; font-weight:bold">
+                                        <span t-esc="producto(l.name)[0:27]"/>
+                                    </td>
+                                    <td style="width: 0.2cm; font-size: 110%; font-weight:bold">
+
+                                       </td>
+                                    <!-- precio unitario -->
+                                    <td style="width: 1.8cm; font-size: 110%; font-weight:bold; text-align: right">
+                                        <span t-field="l.price_unit"/>
+                                    </td>
+
+                                    <td style="width: 2.3cm; font-size: 110%; font-weight:bold">
+
+                                    </td>
+                                    <!-- ventas no sujetas -->
+                                    <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
+                                        <span t-esc="total_linea(l)['ventas_no_sujetas']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <t t-set="total_ventas_no_sujetas" t-as="total_ventas_no_sujetas+total_linea(l)['ventas_no_sujetas']"/>
+                                    </td>
+                                    <!-- ventas exentas -->
+                                    <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
+                                        <span t-esc="total_linea(l)['ventas_exentas']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <t t-set="total_ventas_exentas" t-as="total_ventas_exentas+total_linea(l)['ventas_exentas']"/>
+
+                                    </td>
+                                    <!-- ventas gravadas -->
+                                    <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
+                                        <span t-esc="total_linea(l)['ventas_gravadas']" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <t t-set="total_ventas_gravadas" t-as="total_ventas_gravadas+total_linea(l)['ventas_gravadas']"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                      </div>
+
+                        <!-- A LETRAS EL TOTAL -->
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 24.6cm; left: 2.5cm; width: 20cm; font-weight:bold">
+                            <span t-esc="a_letras(o.amount_total)"/>
+                        </div>
+
+                        <!-- Sumas -->
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 24.6cm; left: 2.5cm; width: 20cm; font-weight:bold">
+                            <span t-esc="o.amount_untaxed_signed"/>
+                        </div>
+
+                        <!-- IVA 13% -->
+                        <div style="position: absolute; top: 25.6cm; left: 22cm; font-size: 90%; font-weight:bold">
+                            <span t-esc="impuesto_impresos(o)['iva_13']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        </div>
+
+                        <!-- Subtotal -->
+                        <div style="position: absolute; top: 26.6cm; left: 22cm; font-size: 90%; font-weight:bold">
+                            <span t-esc="o.amount_untaxed_signed+impuesto_impresos(o)['iva_13']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        </div>
+
+                        <!-- Iva retenido -->
+                        <div style="position: absolute; top: 27.6cm; left: 22cm; font-size: 90%; font-weight:bold">
+                            <span t-esc="impuesto_impresos(o)['iva_retenido_ventas']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        </div>
+
+                        <!-- VTAS. EXENTAS -->
+                        <div style="position: absolute; top: 29.5cm; left: 22.4cm; font-size: 90%; font-weight:bold">
+                            <span t-esc="total_ventas_exentas" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        </div>
+
+                        <!-- VTAS. TOTALES -->
+                        <div style="position: absolute; top: 29.5cm; left: 22.4cm; font-size: 90%; font-weight:bold">
+                            <span t-esc="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        </div>
+
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

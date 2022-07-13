@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="rolsa_account_invoice1"
+            string="Factura Crédito Fiscal El Salvador"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice1"
+            name="rolsa.reporte_account_invoice1"
+        />
+
+        <report
+            id="rolsa_account_invoice2"
+            string="Factura Consumidor final  El Salvador"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice2"
+            name="rolsa.reporte_account_invoice2"
+        />
+
+        <report
+            id="rolsa_account_invoice3"
+            string="Factura de Exportación El Salvador"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice3"
+            name="rolsa.reporte_account_invoice3"
+        />
+
+        <report
+            id="rolsa_account_invoice4"
+            string="Nota de credito El Salvador"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice4"
+            name="rolsa.reporte_account_invoice4"
+        />
+
+    </data>
+</odoo>
