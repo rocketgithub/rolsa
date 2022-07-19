@@ -62,9 +62,9 @@
                                 <span t-esc="o.partner_id.giro_negocio_id.name"/>
                             </t>
                         </div>
-                        <t t-set="total_ventas_no_sujetas" t-as="0"/>
-                        <t t-set="total_ventas_exentas" t-as="0"/>
-                        <t t-set="total_ventas_gravadas" t-as="0"/>
+                        <t t-set="total_ventas_no_sujetas" t-value="0"/>
+                        <t t-set="total_ventas_exentas" t-value="0"/>
+                        <t t-set="total_ventas_gravadas" t-value="0"/>
                         <div style="position: absolute; top: 10.5cm; left: 2cm">
                         <table>
                             <tbody>
@@ -92,18 +92,18 @@
                                     <!-- ventas no sujetas -->
                                     <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
                                         <span t-esc="total_linea(l)['ventas_no_sujetas']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <t t-set="total_ventas_no_sujetas" t-as="total_ventas_no_sujetas+total_linea(l)['ventas_no_sujetas']"/>
+                                        <t t-set="total_ventas_no_sujetas" t-value="total_ventas_no_sujetas+total_linea(l)['ventas_no_sujetas']"/>
                                     </td>
                                     <!-- ventas exentas -->
                                     <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
                                         <span t-esc="total_linea(l)['ventas_exentas']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <t t-set="total_ventas_exentas" t-as="total_ventas_exentas+total_linea(l)['ventas_exentas']"/>
+                                        <t t-set="total_ventas_exentas" t-value="total_ventas_exentas+total_linea(l)['ventas_exentas']"/>
 
                                     </td>
                                     <!-- ventas gravadas -->
                                     <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
                                         <span t-esc="total_linea(l)['ventas_gravadas']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <t t-set="total_ventas_gravadas" t-as="total_ventas_gravadas+total_linea(l)['ventas_gravadas']"/>
+                                        <t t-set="total_ventas_gravadas" t-value="total_ventas_gravadas+total_linea(l)['ventas_gravadas']"/>
                                     </td>
                                 </tr>
                             </tbody>
