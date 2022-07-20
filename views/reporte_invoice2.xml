@@ -4,15 +4,15 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
                 <div class="article">
-                    <div class="page" style="font-size: 85%">
+                    <div class="page" style="font-size: 75%">
 
                       <!-- Pedido no. -->
-                      <div style="position: absolute; top: 3.8cm; left: 2cm; font-size: 110%; font-weight:bold; width: 8cm">
+                      <div style="position: absolute; top: 2.7cm; left: 2cm; font-size: 110%; font-weight:bold; width: 3cm">
                         <span style="font-family: monospace!important" t-field="o.invoice_origin"/>
                       </div>
 
                       <!-- vendedor. -->
-                      <div style="position: absolute; top: 3.8cm; left: 4cm; font-size: 110%; font-weight:bold; width: 8cm">
+                      <div style="position: absolute; top: 2.7cm; left: 4.2cm; font-size: 110%; font-weight:bold; width: 5cm">
                         <span style="font-family: monospace!important" t-field="o.invoice_user_id.name"/>
                       </div>
 
@@ -20,87 +20,85 @@
 
                       <!-- condiciones de pago -->
 
-                      <div style="position: absolute; top: 3.8cm; left: 10cm; font-size: 110%; font-weight:bold; width: 8cm">
+                      <div style="position: absolute; top: 2.7cm; left: 11.5cm; font-size: 110%; font-weight:bold; width: 3cm">
                         <t t-if="o.invoice_payment_term_id">
                             <span style="font-family: monospace!important" t-field="o.invoice_payment_term_id.name"/>
                         </t>
                       </div>
 
                       <!-- codigo cliente -->
-                      <div style="position: absolute; top: 3.8cm; left: 14cm; font-size: 110%; font-weight:bold; width: 8cm">
+                      <div style="position: absolute; top: 2.6cm; left: 15.5cm; font-size: 110%; font-weight:bold; width: 3cm">
                         <span style="font-family: monospace!important" t-field="o.partner_id.ref"/>
                       </div>
 
                         <!-- fecha -->
-                        <div style="position: absolute; top: 3.9cm; left: 16.6cm; font-size: 110%; font-weight:bold">
+                        <div style="position: absolute; top: 2.7cm; left: 18.5cm; font-size: 110%; font-weight:bold">
                             <span t-field="o.invoice_date"/>
                         </div>
+                        
 
                         <!-- nombre cliente -->
-                        <div style="position: absolute; top: 4.8cm; left: 5cm; font-size: 110%; font-weight:bold; width: 8cm">
+                        <div style="position: absolute; top: 3.5cm; left: 2cm; font-size: 90%; font-weight:bold; width: 14cm">
                           <span style="font-family: monospace!important" t-field="o.partner_id.name"/>
                         </div>
-
-                        <!-- nit cliente -->
-                        <div style="position: absolute; top: 4.8cm; left: 15cm; font-size: 110%; font-weight:bold">
-                            <span t-field="o.partner_id.vat"/>
-                        </div>
-
                         <!-- direccion -->
-                        <div style="position: absolute; top: 6.8cm; left: 5cm; font-size: 80%; width: 8cm; font-weight:bold">
+                        <div style="position: absolute; top: 4cm; left: 2.4cm; font-size: 80%; width: 14cm; font-weight:bold">
                             <span t-esc="o.partner_id.street"/>  <span t-esc="o.partner_id.street2"/>
                         </div>
 
+                        <!-- nit cliente -->
+                        <div style="position: absolute; top: 3.5cm; left: 18cm; font-size: 90%; font-weight:bold">
+                            <span t-field="o.partner_id.vat"/>
+                        </div>
                         <!-- registro no -->
-                        <div style="position: absolute; top: 7cm; left: 5cm; font-size: 80%; width: 8cm; font-weight:bold">
+                        <div style="position: absolute; top: 4cm; left: 19cm; font-size: 80%; width: 3cm; font-weight:bold">
                             <span t-esc="o.partner_id.dui"/>
                         </div>
-
                         <!-- giro -->
-                        <div style="position: absolute; top: 6.8cm; left: 5cm; font-size: 80%; width: 8cm; font-weight:bold">
+                        <div style="position: absolute; top: 4.4cm; left: 18cm; font-size: 80%; width: 3cm; font-weight:bold">
                           <t t-if="o.partner_id.giro_negocio_id">
                               <span t-esc="o.partner_id.giro_negocio_id.name"/>
                           </t>
                         </div>
 
-                        <t t-set="total_ventas_no_sujetas" t-value="0"/>
-                        <t t-set="total_ventas_exentas" t-value="0"/>
-                        <t t-set="total_ventas_gravadas" t-value="0"/>
+                        <t t-set="total_ventas_no_sujetas" t-as="0"/>
+                        <t t-set="total_ventas_exentas" t-as="0"/>
+                        <t t-set="total_ventas_gravadas" t-as="0"/>
 
-                        <div style="position: absolute; top: 11cm; left: 2cm">
+                        <div style="position: absolute; top: 5.7cm; left: 1cm">
                             <table>
                                 <tbody>
                                     <tr t-foreach="o.invoice_line_ids" t-as="l">
-                                        <td style="width: 2.5cm; font-size: 100%; font-weight:bold">
+                                        <td style="width: 1.1cm; font-size: 80%; font-weight:bold">
                                             <span t-field="l.quantity" t-options="{'widget': 'float', 'precision': 0}"/>
                                         </td>
-                                        <td style="width: 6cm; font-size: 100%; font-weight:bold">
+                                        <td style="width: 1.5cm; font-size: 80%; font-weight:bold">
                                         <span t-field="l.product_id.default_code"/>
                                         </td>
-                                        <td style="width: 6.2cm; font-size: 110%; font-weight:bold">
-                                        <span t-esc="producto(l.name)[0:24]"/>
+                                        <td style="width: 12cm; font-size: 80%; font-weight:bold">
+                                        <span t-esc="producto(l.name)"/>
                                        </td>
-                                       <td style="width: 0.2cm; font-size: 110%">
+                                       <td style="width: 0.3cm; font-size: 80%">
 
                                        </td>
-                                        <td style="width: 2cm; font-size: 100%;text-align: right; font-weight:bold">
-                                            <span t-esc="l.price_subtotal/l.quantity" t-options="{'widget': 'float', 'precision': 4}"/>
+                                        <td style="width: 1.2cm; font-size: 80%;text-align: right; font-weight:bold">
+                                            <span t-esc="l.price_subtotal/l.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
                                         </td>
                                         <!-- ventas no sujetas -->
-                                        <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
+                                        <td style="width: 1.3cm; font-size: 80%; font-weight:bold" class="text-right">
                                             <span t-esc="total_linea(l)['ventas_no_sujetas']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                            <t t-set="total_ventas_no_sujetas" t-value="total_ventas_no_sujetas+total_linea(l)['ventas_no_sujetas']"/>
+                                            <t t-set="total_ventas_no_sujetas" t-as="total_ventas_no_sujetas+total_linea(l)['ventas_no_sujetas']"/>
                                         </td>
                                         <!-- ventas exentas -->
-                                        <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
+                                        <td style="width: 1.2cm; font-size: 80%; font-weight:bold" class="text-right">
                                             <span t-esc="total_linea(l)['ventas_exentas']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                            <t t-set="total_ventas_exentas" t-value="total_ventas_exentas+total_linea(l)['ventas_exentas']"/>
+                                            <t t-set="total_ventas_exentas" t-as="total_ventas_exentas+total_linea(l)['ventas_exentas']"/>
 
                                         </td>
                                         <!-- ventas gravadas -->
-                                        <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
+                                        <td style="width: 1.8cm; font-size: 80%; font-weight:bold" class="text-right">
                                             <span t-esc="total_linea(l)['ventas_gravadas']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                            <t t-set="total_ventas_gravadas" t-value="total_ventas_gravadas+total_linea(l)['ventas_gravadas']"/>
+                                            <t t-set="total_ventas_gravadas" t-as="total_ventas_gravadas+total_linea(l)['ventas_gravadas']"/>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -108,36 +106,32 @@
                         </div>
 
                         <!-- A LETRAS EL TOTAL -->
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 25cm; left: 2.5cm; width: 20cm; font-weight:bold">
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 10.6cm; left: 2cm; width: 14cm; font-weight:bold">
                             <span t-esc="a_letras(o.amount_total)"/>
                         </div>
 
                         <!-- LINEA DE SUMAS -->
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 25cm; left: 22cm; width: 20cm; font-weight:bold">
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 10.6cm; left: 20cm; font-weight:bold">
                             <span t-esc="total_ventas_no_sujetas"/>
                         </div>
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 25cm; left: 23cm; width: 20cm; font-weight:bold">
-                            <span t-esc="total_ventas_exentas"/>
-                        </div>
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 25cm; left: 24cm; width: 20cm; font-weight:bold">
-                            <span t-esc="total_ventas_gravadas"/>
-                        </div>
-                        <!-- TERMIAN LINEA DE SUMAS -->
-
-
-                        <!-- IVA RETENIDO-->
-                        <div style="position: absolute; top: 26cm; left: 22cm; font-size: 90%; font-weight:bold">
+                         <!-- IVA RETENIDO-->
+                        <div style="position: absolute; top: 11.2cm; left: 20cm; font-size: 90%; font-weight:bold">
                             <span t-esc="impuesto_impresos(o)['iva_retenido_ventas']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
                         </div>
-
-                        <!-- SUBTOTAL-->
-                        <div style="position: absolute; top: 26cm; left: 22cm; font-size: 90%; font-weight:bold">
+                         <!-- SUBTOTAL-->
+                        <div style="position: absolute; top: 11.8cm; left: 20cm; font-size: 90%; font-weight:bold">
                             <span t-esc="o.amount_untaxed_signed-impuesto_impresos(o)['iva_retenido_ventas']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
                         </div>
-
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 12.4cm; left: 20cm; font-weight:bold">
+                            <span t-esc="total_ventas_gravadas"/>
+                        </div>
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 13cm; left: 20cm; font-weight:bold">
+                            <span t-esc="total_ventas_exentas"/>
+                        </div>
+                        <!-- TERMIAN LINEA DE SUMAS -->
                         <!-- TOTAL -->
-                        <div style="position: absolute; top: 30cm; left: 22.4cm; font-size: 90%; font-weight:bold">
-                            <span t-esc="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                        <div style="position: absolute; top: 13.6cm; left: 20cm; font-size: 90%; font-weight:bold">
+                          <span t-esc="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
                         </div>
 
                     </div>
