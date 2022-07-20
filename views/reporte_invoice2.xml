@@ -75,7 +75,7 @@
                                         <td style="width: 1.5cm; font-size: 80%; font-weight:bold">
                                         <span t-field="l.product_id.default_code"/>
                                         </td>
-                                        <td style="width: 12cm; font-size: 80%; font-weight:bold">
+                                        <td style="width: 11.7cm; font-size: 80%; font-weight:bold">
                                         <span t-esc="producto(l.name)"/>
                                        </td>
                                        <td style="width: 0.3cm; font-size: 80%">
