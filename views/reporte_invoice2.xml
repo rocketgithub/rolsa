@@ -32,7 +32,7 @@
                       </div>
 
                         <!-- fecha -->
-                        <div style="position: absolute; top: 2.7cm; left: 18.5cm; font-size: 110%; font-weight:bold">
+                        <div style="position: absolute; top: 2.7cm; left: 18.5cm; font-size: 100%; font-weight:bold">
                             <span t-field="o.invoice_date"/>
                         </div>
                         
@@ -106,12 +106,12 @@
                         </div>
 
                         <!-- A LETRAS EL TOTAL -->
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 10.6cm; left: 2cm; width: 14cm; font-weight:bold">
+                        <div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 10.6cm; left: 2cm; width: 14cm; font-weight:bold">
                             <span t-esc="a_letras(o.amount_total)"/>
                         </div>
 
                         <!-- LINEA DE SUMAS -->
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 10.6cm; left: 20cm; font-weight:bold">
+                        <div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 10.6cm; left: 20cm; font-weight:bold">
                             <span t-esc="total_ventas_no_sujetas"/>
                         </div>
                          <!-- IVA RETENIDO-->
@@ -122,10 +122,10 @@
                         <div style="position: absolute; top: 11.8cm; left: 20cm; font-size: 90%; font-weight:bold">
                             <span t-esc="o.amount_untaxed_signed-impuesto_impresos(o)['iva_retenido_ventas']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
                         </div>
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 12.4cm; left: 20cm; font-weight:bold">
+                        <div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 12.4cm; left: 20cm; font-weight:bold">
                             <span t-esc="total_ventas_gravadas"/>
                         </div>
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 13cm; left: 20cm; font-weight:bold">
+                        <div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 13cm; left: 20cm; font-weight:bold">
                             <span t-esc="total_ventas_exentas"/>
                         </div>
                         <!-- TERMIAN LINEA DE SUMAS -->
