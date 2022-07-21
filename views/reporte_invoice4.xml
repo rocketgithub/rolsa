@@ -66,7 +66,8 @@
                         <div style="position: absolute; top: 8cm; left: 20cm; font-size: 110%; font-weight:bold">
                           <t t-if="o.partner_id.giro_negocio_id">
                               <span t-esc="o.partner_id.giro_negocio_id.name"/>
-                          </t>                        </div>
+                          </t>
+                        </div>
 
                         <!-- forma de pago -->
                         <div style="position: absolute; top: 9cm; left: 20cm; font-size: 110%; font-weight:bold">
@@ -106,10 +107,17 @@
                         </table>
                       </div>
 
-                          <!-- SUMAS -->
+
+                          <!-- INICIA LINEA DE SUMAS -->
+                          <!-- VENTAS NO SUJETAS Y VENTAS EXENTES NO APLICA POR ESO NO SE PONE ALGUN VALOR, SOLO LA COLUMNA VENTAS GRAVADAS -->
+
+                          <!-- VENTAS GRAVADAS -->
                           <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 22cm; left: 22cm; width: 20cm; font-weight:bold">
-                              <span t-esc="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                              <span t-esc="o.amount_total" t-options="{'widget': 'float', 'precision': 2}"/>
                           </div>
+
+                          <!-- TERMINA LINEA DE SUMAS -->
+
 
                           <!-- A LETRAS EL TOTAL -->
                         <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 23cm; left: 2.5cm; width: 20cm; font-weight:bold">
@@ -118,22 +126,22 @@
 
                         <!-- 13% IVA-->
                         <div style="position: absolute; top: 26cm; left: 22cm; font-size: 90%; font-weight:bold">
-                            <span t-esc="impuesto_impresos(o)['iva_13']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="impuesto_impresos(o)['iva_13']" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- SUBTOTAL-->
                         <div style="position: absolute; top: 26.5cm; left: 22cm; font-size: 90%; font-weight:bold">
-                            <span t-esc="o.amount_untaxed_signed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="o.amount_untaxed_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- IVA RETENIDO-->
                         <div style="position: absolute; top: 27cm; left: 22cm; font-size: 90%; font-weight:bold">
-                            <span t-esc="impuesto_impresos(o)['iva_retenido_ventas']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="impuesto_impresos(o)['iva_retenido_ventas']" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- VTA TOTAL -->
                         <div style="position: absolute; top: 27.5cm; left: 22cm; font-size: 90%; font-weight:bold">
-                            <span t-esc="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="o.amount_total" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
 
