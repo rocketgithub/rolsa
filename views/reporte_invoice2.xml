@@ -52,13 +52,13 @@
                         </div>
                         <!-- registro no -->
                         <div style="position: absolute; top: 4cm; left: 19cm; font-size: 80%; width: 3cm; font-weight:bold">
-                            <!-- <span t-esc="o.partner_id.dui"/> -->
+                            <span t-esc="o.partner_id.dui"/>
                         </div>
                         <!-- giro -->
                         <div style="position: absolute; top: 4.4cm; left: 18cm; font-size: 80%; width: 3cm; font-weight:bold">
-                          <!-- <t t-if="o.partner_id.giro_negocio_id">
+                          <t t-if="o.partner_id.giro_negocio_id">
                               <span t-esc="o.partner_id.giro_negocio_id.name"/>
-                          </t> -->
+                          </t>
                         </div>
 
                         <t t-set="total_ventas_no_sujetas" t-value="0"/>
