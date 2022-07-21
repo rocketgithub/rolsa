@@ -117,7 +117,7 @@
 
                         <!-- TOTAL -->
                         <div style="position: absolute; top: 14.5cm; left: 15cm; font-size: 90%; font-weight:bold">
-                            <span t-esc="o.amount_total"/>
+                            <span t-esc="o.amount_total" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
 
