@@ -44,7 +44,7 @@
                         <div style="position: absolute; top: 5.4cm; left: 2.9cm; font-size: 80%; font-weight:bold: width: 14cm">
                             <span t-esc="o.partner_id.street"/>  <span t-esc="o.partner_id.street2"/>
                         </div>
-                        
+
                         <!-- nit cliente -->
                         <div style="position: absolute; top: 4.9cm; left: 18cm; font-size: 90%; font-weight:bold">
                             <span t-field="o.partner_id.vat"/>
@@ -84,7 +84,7 @@
                                         <span t-field="l.price_unit"/>
                                     </td>
 
-                                    
+
                                     <!-- ventas no sujetas -->
                                     <td style="width: 1.9cm; font-size: 80%; font-weight:bold" class="text-right">
                                         <span t-esc="total_linea(l)['ventas_no_sujetas']" t-options="{'widget': 'float', 'precision': 2}"/>
@@ -108,38 +108,38 @@
 
                         <!-- A LETRAS EL TOTAL -->
                         <P><div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 19.1cm; left: 2cm; font-weight:bold; width: 14cm">
-                            <span t-esc="a_letras(o.amount_total)"/>
+                            <span t-esc="a_letras_dolares(o.amount_total)"/>
                         </div></P>
 
                         <!-- Sumas -->
                         <div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 19cm; left: 22.5cm; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="o.amount_untaxed_signed"/>
+                            <span t-esc="o.amount_untaxed_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- IVA 13% -->
                         <div style="position: absolute; top: 19.5cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="impuesto_impresos(o)['iva_13']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="impuesto_impresos(o)['iva_13']" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- Subtotal -->
                         <div style="position: absolute; top: 20cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="o.amount_untaxed_signed+impuesto_impresos(o)['iva_13']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="o.amount_untaxed_signed+impuesto_impresos(o)['iva_13']" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- Iva retenido -->
                         <div style="position: absolute; top: 20.5cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="impuesto_impresos(o)['iva_retenido_ventas']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="impuesto_impresos(o)['iva_retenido_ventas']" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
 
                         <!-- VTAS. EXENTAS -->
                         <div style="position: absolute; top: 22cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="total_ventas_exentas" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="total_ventas_exentas" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- VTAS. TOTALES -->
                         <div style="position: absolute; top: 22.5cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                            <span t-esc="o.amount_total" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                     </div>

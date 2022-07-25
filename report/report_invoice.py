@@ -86,6 +86,10 @@ class ReportAbstractInvoice(models.AbstractModel):
 
         return {'isv_15': isv_15, 'isv_18': isv_18, 'retencion': retencion, 'cesc_sv_5': cesc_sv_5, 'iva_por_pagar_sv': iva_por_pagar_sv, 'retencion_iva': retencion_iva}
 
+    def a_letras_dolares(self, valor):
+        valor_letras = a_letras.num_a_letras(valor)
+        return valor_letras + " Dolares"
+
     def producto(self, nombre):
         return re.sub(r'\[.+\] ', '', nombre)
 
@@ -105,6 +109,7 @@ class ReportAbstractInvoice(models.AbstractModel):
             'total_linea': self.total_linea,
             'impuesto_impresos': self.impuesto_impresos,
             'impuestos': self.impuestos,
+            'a_letras_dolares': self.a_letras_dolares
         }
 
 
@@ -131,3 +136,9 @@ class ReportInvoice4(models.AbstractModel):
     _inherit = 'rolsa.abstract.reporte_account_invoice'
 
     nombre_reporte = 'rolsa.reporte_account_invoice4'
+
+# class ReportInvoice5(models.AbstractModel):
+#     _name = 'report.rolsa.reporte_account_invoice5'
+#     _inherit = 'rolsa.abstract.reporte_account_invoice'
+#
+#     nombre_reporte = 'rolsa.reporte_account_invoice5'
