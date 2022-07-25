@@ -121,7 +121,7 @@
 
                           <!-- A LETRAS EL TOTAL -->
                         <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 23cm; left: 2.5cm; width: 20cm; font-weight:bold">
-                            <span t-esc="a_letras(o.amount_total)"/>
+                            <span t-esc="a_letras_dolares(o.amount_total)"/>
                         </div>
 
                         <!-- 13% IVA-->
