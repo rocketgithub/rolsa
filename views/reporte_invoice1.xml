@@ -51,24 +51,28 @@
                         </div>
                         <!-- registro no -->
                         <div style="position: absolute; top: 5.4cm; left: 19.5cm; font-size: 80%; font-weight:bold">
-                            <span t-esc="o.partner_id.dui"/>
+                            <!-- <span t-esc="o.partner_id.dui"/> -->
                         </div>
 
                         <!-- giro -->
                         <div style="position: absolute; top: 5.9cm; left: 18cm; font-size: 80%; font-weight:bold; width: 6cm">
-                            <t t-if="o.partner_id.giro_negocio_id">
+                            <!-- <t t-if="o.partner_id.giro_negocio_id">
                                 <span t-esc="o.partner_id.giro_negocio_id.name"/>
-                            </t>
+                            </t> -->
                         </div>
                         <t t-set="total_ventas_no_sujetas" t-value="0"/>
                         <t t-set="total_ventas_exentas" t-value="0"/>
                         <t t-set="total_ventas_gravadas" t-value="0"/>
+                        <t t-set="impuesto_iva" t-value="impuestos(o)['iva_por_pagar_sv']"/>
+                        <t t-set="impuesto_cesc" t-value="impuestos(o)['cesc_sv_5']"/>
+                        <t t-set="retencion_iva" t-value="impuestos(o)['retencion_iva']"/>
+                        <t t-set="impuesto_isv_13" t-value="impuestos(o)['isv_13']"/>
                         <div style="position: absolute; top: 8cm; left: 1cm">
                         <table>
                             <tbody>
                                 <tr t-foreach="o.invoice_line_ids" t-as="l">
                                     <td style="width: 1.6cm; font-size: 80%; font-weight:bold">
-                                        <span t-field="l.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <span t-field="l.quantity"/>
                                     </td>
                                     <td style="width: 1.9cm; font-size: 80%; font-weight:bold">
                                         <span t-field="l.product_id.default_code"/>
@@ -79,27 +83,26 @@
                                     <td style="width: 0.2m; font-size: 80%; font-weight:bold">
 
                                        </td>
-                                    <!-- precio unitario -->
+                                    <!-- precio unitario sin umpuesto-->
                                     <td style="width: 1.9cm; font-size: 80%; font-weight:bold" class="text-right">
-                                        <span t-field="l.price_unit"/>
+                                        <span t-esc="l.price_subtotal / l.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
                                     </td>
-
 
                                     <!-- ventas no sujetas -->
-                                    <td style="width: 1.9cm; font-size: 80%; font-weight:bold" class="text-right">
+                                    <!-- <td style="width: 1.9cm; font-size: 80%; font-weight:bold" class="text-right">
                                         <span t-esc="total_linea(l)['ventas_no_sujetas']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <t t-set="total_ventas_no_sujetas" t-value="total_ventas_no_sujetas+total_linea(l)['ventas_no_sujetas']"/>
-                                    </td>
+                                    </td> -->
                                     <!-- ventas exentas -->
-                                    <td style="width: 1.9cm; font-size: 80%; font-weight:bold" class="text-right">
+                                    <!-- <td style="width: 1.9cm; font-size: 80%; font-weight:bold" class="text-right">
                                         <span t-esc="total_linea(l)['ventas_exentas']" t-options="{'widget': 'float', 'precision': 2}"/>
                                         <t t-set="total_ventas_exentas" t-value="total_ventas_exentas+total_linea(l)['ventas_exentas']"/>
 
-                                    </td>
+                                    </td> -->
                                     <!-- ventas gravadas -->
                                     <td style="width: 2cm; font-size: 80%; font-weight:bold" class="text-right">
-                                        <span t-esc="total_linea(l)['ventas_gravadas']" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <t t-set="total_ventas_gravadas" t-value="total_ventas_gravadas+total_linea(l)['ventas_gravadas']"/>
+                                        <span t-esc="l.price_subtotal" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <t t-set="total_ventas_gravadas" t-value="total_ventas_gravadas+l.price_subtotal"/>
                                     </td>
                                 </tr>
                             </tbody>
@@ -116,30 +119,30 @@
                             <span t-esc="o.amount_untaxed_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
-                        <!-- IVA 13% -->
+                        <!-- IVA 13% o IVA12% -->
                         <div style="position: absolute; top: 19.5cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="impuesto_impresos(o)['iva_13']" t-options="{'widget': 'float', 'precision': 2}"/>
+                            <span t-esc="impuesto_iva+impuesto_isv_13" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- Subtotal -->
                         <div style="position: absolute; top: 20cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="o.amount_untaxed_signed+impuesto_impresos(o)['iva_13']" t-options="{'widget': 'float', 'precision': 2}"/>
+                            <span t-esc="o.amount_untaxed_signed+impuesto_iva+impuesto_isv_13" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- Iva retenido -->
                         <div style="position: absolute; top: 20.5cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="impuesto_impresos(o)['iva_retenido_ventas']" t-options="{'widget': 'float', 'precision': 2}"/>
+                            <span t-esc="retencion_iva" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
 
                         <!-- VTAS. EXENTAS -->
-                        <div style="position: absolute; top: 22cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="total_ventas_exentas" t-options="{'widget': 'float', 'precision': 2}"/>
-                        </div>
+                        <!-- <div style="position: absolute; top: 22cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
+                            <span t-esc="impuesto_cesc" t-options="{'widget': 'float', 'precision': 2}"/>
+                        </div> -->
 
                         <!-- VTAS. TOTALES -->
                         <div style="position: absolute; top: 22.5cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="o.amount_total" t-options="{'widget': 'float', 'precision': 2}"/>
+                            <span t-esc="(o.amount_untaxed_signed+impuesto_iva+impuesto_isv_13)-retencion_iva" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                     </div>
