@@ -45,21 +45,6 @@ class ReportAbstractInvoice(models.AbstractModel):
         logging.warning({'iva_13': iva_13, 'iva_retenido_ventas': iva_retenido_ventas})
         return {'iva_13': iva_13, 'iva_retenido_ventas': iva_retenido_ventas}
 
-    def impuestos2(self,o):
-        impuesto = o.amount_by_group
-        isv_15 = 0
-        isv_18 = 0
-        retencion = 0
-        for i in impuesto:
-            imp = i
-            if i[0] == 'ISV 15% por Pagar' or i[0] == 'ISV 15% por Cobrar':
-                isv_15 += i[1]
-            elif i[0]  == 'ISV 18% por Pagar' or i[0]  == 'ISV 18% por Cobrar':
-                isv_18 += i[1]
-            elif i[0] == 'Retencion ISR 1%':
-                retencion += i[1]
-        return {'isv_15': isv_15, 'isv_18': isv_18,'retencion': retencion}
-
     def impuestos(self,o):
         isv_15 = 0
         isv_18 = 0
@@ -72,9 +57,9 @@ class ReportAbstractInvoice(models.AbstractModel):
             precio_unitario = l.price_unit * (100-l.discount or 0.0) / 100
             impuestos = l.tax_ids.compute_all(precio_unitario, o.currency_id, l.quantity, l.product_id, l.move_id.partner_id)
             for i in impuestos['taxes']:
-                if i['name'] == 'ISV 15% por Pagar' or i['name'] == 'ISV 15% por Cobrar':
+                if i['name'] == 'ISV por Pagar' or i['name'] == 'ISV por Cobrar':
                     isv_15 += i['amount']
-                elif i['name'] == 'ISV 18% por Pagar' or i['name'] == 'ISV 18% por Cobrar':
+                elif i['name'] == 'ISV por Pagar 18%' or i['name'] == 'ISV por Cobrar 18%':
                     isv_18 += i['amount']
                 elif i['name'] == 'Retencion ISR 1%':
                     retencion += i['amount']
@@ -139,20 +124,20 @@ class ReportInvoice4(models.AbstractModel):
 
     nombre_reporte = 'rolsa.reporte_account_invoice4'
 
-# class ReportInvoice5(models.AbstractModel):
-#     _name = 'report.rolsa.reporte_account_invoice5'
-#     _inherit = 'rolsa.abstract.reporte_account_invoice'
-#
-#     nombre_reporte = 'rolsa.reporte_account_invoice5'
-#
-# class ReportInvoice6(models.AbstractModel):
-#     _name = 'report.rolsa.reporte_account_invoice6'
-#     _inherit = 'rolsa.abstract.reporte_account_invoice'
-#
-#     nombre_reporte = 'rolsa.reporte_account_invoice6'
-#
-# class ReportInvoice7(models.AbstractModel):
-#     _name = 'report.rolsa.reporte_account_invoice7'
-#     _inherit = 'rolsa.abstract.reporte_account_invoice'
-#
-#     nombre_reporte = 'rolsa.reporte_account_invoice7'
+class ReportInvoice5(models.AbstractModel):
+    _name = 'report.rolsa.reporte_account_invoice5'
+    _inherit = 'rolsa.abstract.reporte_account_invoice'
+
+    nombre_reporte = 'rolsa.reporte_account_invoice5'
+
+class ReportInvoice6(models.AbstractModel):
+    _name = 'report.rolsa.reporte_account_invoice6'
+    _inherit = 'rolsa.abstract.reporte_account_invoice'
+
+    nombre_reporte = 'rolsa.reporte_account_invoice6'
+
+class ReportInvoice7(models.AbstractModel):
+    _name = 'report.rolsa.reporte_account_invoice7'
+    _inherit = 'rolsa.abstract.reporte_account_invoice'
+
+    nombre_reporte = 'rolsa.reporte_account_invoice7'
