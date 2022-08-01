@@ -38,5 +38,31 @@
             name="rolsa.reporte_account_invoice4"
         />
 
+        <report
+            id="rolsa_account_invoice5"
+            string="Factura Honduras"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice5"
+            name="rolsa.reporte_account_invoice5"
+        />
+
+        <report
+            id="rolsa_account_invoice6"
+            string="NC Honduras"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice6"
+            name="rolsa.reporte_account_invoice6"
+        />
+
+        <report
+            id="rolsa_account_invoice7"
+            string="ND Honduras"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice7"
+            name="rolsa.reporte_account_invoice7"
+        />
     </data>
 </odoo>

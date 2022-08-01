@@ -6,8 +6,6 @@
                 <div class="article">
                     <div class="page" style="font-size: 85%">
 
-
-
                       <!-- nombre cliente -->
                         <div style="position: absolute; top: 1.8cm; left: 2cm; font-size: 80%; font-weight:bold; width: 14cm">
                         <span style="font-family: monospace!important" t-field="o.partner_id.name"/>
