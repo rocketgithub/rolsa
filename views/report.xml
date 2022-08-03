@@ -64,5 +64,87 @@
             file="rolsa.reporte_account_invoice7"
             name="rolsa.reporte_account_invoice7"
         />
+        
+        <report
+            id="rolsa_account_payment1"
+            string="Voucher 1"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment1"
+            name="rolsa.reporte_account_payment1"
+        />
+        
+        <report
+            id="rolsa_account_payment2"
+            string="Voucher 2"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment2"
+            name="rolsa.reporte_account_payment2"
+        />
+        
+        <report
+            id="rolsa_account_payment3"
+            string="Voucher 3"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment3"
+            name="rolsa.reporte_account_payment3"
+        />
+        
+        <report
+            id="rolsa_account_payment4"
+            string="Voucher 4"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment4"
+            name="rolsa.reporte_account_payment4"
+        />
+        
+        <report
+            id="rolsa_account_payment5"
+            string="Voucher 5"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment5"
+            name="rolsa.reporte_account_payment5"
+        />
+        
+        <report
+            id="rolsa_account_payment6"
+            string="Voucher 6"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment6"
+            name="rolsa.reporte_account_payment6"
+        />
+        
+        <report
+            id="rolsa_account_payment7"
+            string="Voucher 7"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment7"
+            name="rolsa.reporte_account_payment7"
+        />
+        
+        <report
+            id="rolsa_account_payment8"
+            string="Voucher 8"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment8"
+            name="rolsa.reporte_account_payment8"
+        />
+        
+        <report
+            id="rolsa_account_payment9"
+            string="Voucher 9"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment9"
+            name="rolsa.reporte_account_payment9"
+        />
+        
     </data>
 </odoo>
