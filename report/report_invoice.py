@@ -67,11 +67,12 @@ class ReportAbstractInvoice(models.AbstractModel):
                     isv_13 += i['amount']
                 elif i['name'] == 'Cesc SV 5%':
                     cesc_sv_5 += i['amount']
-                elif i['name'] in ['IVA por Pagar','IVA Retenido']:
+                elif i['name'] in ['IVA por Pagar']:
                     iva_por_pagar_sv += i['amount']
                 elif i['name'] == 'IVA Retenido':
                     retencion_iva += i['amount']
 
+        iva_por_pagar_sv += retencion_iva
         return {'isv_13': isv_13,'isv_15': isv_15, 'isv_18': isv_18, 'retencion': retencion, 'cesc_sv_5': cesc_sv_5, 'iva_por_pagar_sv': iva_por_pagar_sv, 'retencion_iva': retencion_iva}
 
     def a_letras_dolares(self, valor):
