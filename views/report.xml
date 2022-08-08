@@ -94,7 +94,7 @@
         
         <report
             id="rolsa_account_payment4"
-            string="Voucher 4"
+            string="Voucher SALVADOR BAC $"
             model="account.payment"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_payment4"
