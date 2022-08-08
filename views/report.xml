@@ -112,7 +112,7 @@
         
         <report
             id="rolsa_account_payment6"
-            string="Voucher 6"
+            string="Voucher SALVADOR CITIBANK $"
             model="account.payment"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_payment6"
