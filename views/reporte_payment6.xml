@@ -23,7 +23,7 @@
                       <div style="font-size: 130%; text-transform: uppercase; position: absolute; top: 4.9cm; left: 10cm; width: 20cm">
                           <span t-esc="a_letras(o.amount)"/>
                       </div>
-                      <div t-if="o.no_negociable == True" style="font-size: 130%; position: absolute; top: 7.4cm; left: 13.5cm">
+                      <div t-if="o.no_negociable == True" style="font-size: 130%; position: absolute; top: 6.7cm; left: 13.5cm">
                           <span>NO  NEGOCIABLE</span>
                       </div>
                       
