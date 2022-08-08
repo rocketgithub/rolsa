@@ -103,7 +103,7 @@
         
         <report
             id="rolsa_account_payment5"
-            string="Voucher 5"
+            string="Voucher SALVADOR AGRICOLA $"
             model="account.payment"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_payment5"
