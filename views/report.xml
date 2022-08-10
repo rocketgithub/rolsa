@@ -85,7 +85,7 @@
         
         <report
             id="rolsa_account_payment3"
-            string="Voucher 3"
+            string="Voucher BANPRO NICARAGUA"
             model="account.payment"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_payment3"
