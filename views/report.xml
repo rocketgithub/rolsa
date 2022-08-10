@@ -76,7 +76,7 @@
         
         <report
             id="rolsa_account_payment2"
-            string="Voucher 2"
+            string="Voucher LA FISE NICARAGUA"
             model="account.payment"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_payment2"
