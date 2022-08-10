@@ -67,7 +67,7 @@
         
         <report
             id="rolsa_account_payment1"
-            string="Voucher 1"
+            string="Voucher BAC NICARAGUA"
             model="account.payment"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_payment1"
