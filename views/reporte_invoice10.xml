@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="reporte_account_invoice10">
+       <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="article">
+                    <div class="page" style="font-size: 85%">
+
+                          <!-- Dia -->
+                          <div style="position: absolute; top: 3.0cm; left: 1cm; font-size: 110%; font-weight:bold; width: 2cm">
+                            <span style="font-family: monospace!important" t-esc="o.invoice_date.day"/>
+                          </div>
+                          <!-- Mes -->
+                          <div style="position: absolute; top: 3.0cm; left: 2cm; font-size: 110%; font-weight:bold; width: 2cm">
+                            <span style="font-family: monospace!important" t-esc="o.invoice_date.month"/>
+                          </div>
+                          <!-- Año -->
+                          <div style="position: absolute; top: 3.0cm; left: 3cm; font-size: 110%; font-weight:bold; width: 2cm">
+                            <span style="font-family: monospace!important" t-esc="o.invoice_date.year"/>
+                          </div>
+                          <!-- Numero de nota de credito o debito -->
+                          <div style="position: absolute; top: 3.0cm; left: 8cm; font-size: 110%; font-weight:bold; width: 2cm">
+                            <span style="font-family: monospace!important" t-esc="o.name"/>
+                          </div>
+
+
+                          <!-- cliente o Sr. -->
+                          <div style="position: absolute; top: 3.7cm; left: 1cm; font-size: 110%; font-weight:bold; width: 2cm">
+                            <span style="font-family: monospace!important" t-field="o.partner_id"/>
+                          </div>
+
+                          <!-- Registro tributario o NIT cliente -->
+
+                          <div style="position: absolute; top: 3.7cm; left: 10cm; font-size: 110%; font-weight:bold; width: 2cm">
+                            <span style="font-family: monospace!important" t-field="o.partner_id.vat"/>
+                          </div>
+
+                          <!-- direccion -->
+                          <div style="position: absolute; top: 4.0cm; left: 1cm; font-size: 110%; font-weight:bold; width: 6cm">
+                            <span style="font-family: monospace!important" t-field="o.partner_id.street"/>, <span style="font-family: monospace!important" t-field="o.partner_id.street2"/>
+                            <t t-if="o.partner_id.city">
+                                , <span style="font-family: monospace!important" t-field="o.partner_id.city"/>
+                            </t>
+                            <t t-if="o.partner_id.state_id">
+                                , <span style="font-family: monospace!important" t-field="o.partner_id.state_id.name"/>
+                            </t>
+                          </div>
+
+
+                          <!-- Palabra ACREDITADO fijo -->
+                          <div style="position: absolute; top: 4.5cm; left: 5cm; font-size: 110%; font-weight:bold; width: 2cm">
+                            <p style="font-family: monospace!important">
+                                ACREDITADO
+                            </p>
+                          </div>
+
+                          <!-- A LETRAS EL TOTAL -->
+                          <P><div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 7.0cm; left: 2cm; font-weight:bold; width: 14cm">
+                              <span t-esc="a_letras_dolares(o.amount_total)"/>
+                          </div></P>
+
+
+                          <t t-set="descuento" t-value="0"/>
+                          <t t-set="subtotal_sin_descuento" t-value="0"/>
+                          <div style="position: absolute; top: 8cm; left: 1cm">
+                          <table>
+                              <tbody>
+                                  <tr t-foreach="o.invoice_line_ids" t-as="l">
+                                      <td style="width: 12cm; font-size: 80%; font-weight:bold">
+                                          <span t-esc="l.name"/>
+                                      </td>
+                                      <td style="width: 0.2m; font-size: 80%; font-weight:bold">
+
+                                         </td>
+                                      <!-- Columna parcial-->
+                                      <td style="width: 1.9cm; font-size: 80%; font-weight:bold" class="text-right">
+                                          <span t-esc="l.price_subtotal / l.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
+                                      </td>
+
+                                      <!-- Columna total -->
+                                      <td style="width: 2cm; font-size: 80%; font-weight:bold" class="text-right">
+                                          <span t-esc="l.price_subtotal" t-options="{'widget': 'float', 'precision': 2}"/>
+                                          <t t-set="subtotal_sin_descuento" t-value="subtotal_sin_descuento + (l.price_unit / l.quantity)"/>
+                                      </td>
+
+                                  </tr>
+                                  <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Subtotal</td>
+                                        <td class="text-right"><span t-field="o.amount_untaxed_signed" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                  </tr>
+                                  <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>IVA</td>
+                                        <td class="text-right"><span t-field="o.amount_tax_signed" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                  </tr>
+                                  <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>Total</td>
+                                        <td class="text-right"><span t-field="o.amount_total_signed" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                        </div>
+
+                        <!-- Hecho por -->
+                        <div style="position: absolute; top: 11cm; left: 4cm; font-size: 110%; font-weight:bold; width: 2cm">
+                          <span style="font-family: monospace!important" t-field="o.invoice_user_id.name"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -64,7 +64,34 @@
             file="rolsa.reporte_account_invoice7"
             name="rolsa.reporte_account_invoice7"
         />
-        
+
+        <report
+            id="rolsa_account_invoice8"
+            string="Factura Nicaragua"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice8"
+            name="rolsa.reporte_account_invoice8"
+        />
+
+        <report
+            id="rolsa_account_invoice9"
+            string="NC Nicaragua"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice9"
+            name="rolsa.reporte_account_invoice9"
+        />
+
+        <report
+            id="rolsa_account_invoice10"
+            string="ND Nicaragua"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice10"
+            name="rolsa.reporte_account_invoice10"
+        />
+
         <report
             id="rolsa_account_payment1"
             string="Voucher BAC NICARAGUA"
@@ -73,7 +100,7 @@
             file="rolsa.reporte_account_payment1"
             name="rolsa.reporte_account_payment1"
         />
-        
+
         <report
             id="rolsa_account_payment2"
             string="Voucher LA FISE NICARAGUA"
@@ -82,7 +109,7 @@
             file="rolsa.reporte_account_payment2"
             name="rolsa.reporte_account_payment2"
         />
-        
+
         <report
             id="rolsa_account_payment3"
             string="Voucher BANPRO NICARAGUA"
@@ -91,7 +118,7 @@
             file="rolsa.reporte_account_payment3"
             name="rolsa.reporte_account_payment3"
         />
-        
+
         <report
             id="rolsa_account_payment4"
             string="Voucher SALVADOR BAC $"
@@ -100,7 +127,7 @@
             file="rolsa.reporte_account_payment4"
             name="rolsa.reporte_account_payment4"
         />
-        
+
         <report
             id="rolsa_account_payment5"
             string="Voucher SALVADOR AGRICOLA $"
@@ -109,7 +136,7 @@
             file="rolsa.reporte_account_payment5"
             name="rolsa.reporte_account_payment5"
         />
-        
+
         <report
             id="rolsa_account_payment6"
             string="Voucher SALVADOR CITIBANK $"
@@ -118,7 +145,7 @@
             file="rolsa.reporte_account_payment6"
             name="rolsa.reporte_account_payment6"
         />
-        
+
         <report
             id="rolsa_account_payment7"
             string="Voucher 7"
@@ -127,7 +154,7 @@
             file="rolsa.reporte_account_payment7"
             name="rolsa.reporte_account_payment7"
         />
-        
+
         <report
             id="rolsa_account_payment8"
             string="Voucher 8"
@@ -136,7 +163,7 @@
             file="rolsa.reporte_account_payment8"
             name="rolsa.reporte_account_payment8"
         />
-        
+
         <report
             id="rolsa_account_payment9"
             string="Voucher 9"
@@ -145,6 +172,6 @@
             file="rolsa.reporte_account_payment9"
             name="rolsa.reporte_account_payment9"
         />
-        
+
     </data>
 </odoo>
