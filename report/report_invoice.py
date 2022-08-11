@@ -42,7 +42,6 @@ class ReportAbstractInvoice(models.AbstractModel):
                             iva_13 += impuesto['amount']
                         if impuesto['name'] == 'IVA Retenido Ventas':
                             iva_retenido_ventas += impuesto['amount']
-        logging.warning({'iva_13': iva_13, 'iva_retenido_ventas': iva_retenido_ventas})
         return {'iva_13': iva_13, 'iva_retenido_ventas': iva_retenido_ventas}
 
     def impuestos(self,o):
@@ -72,7 +71,6 @@ class ReportAbstractInvoice(models.AbstractModel):
                 elif i['name'] == 'IVA Retenido':
                     retencion_iva += i['amount']
 
-        iva_por_pagar_sv += retencion_iva
         return {'isv_13': isv_13,'isv_15': isv_15, 'isv_18': isv_18, 'retencion': retencion, 'cesc_sv_5': cesc_sv_5, 'iva_por_pagar_sv': iva_por_pagar_sv, 'retencion_iva': retencion_iva}
 
     def a_letras_dolares(self, valor):
@@ -142,3 +140,21 @@ class ReportInvoice7(models.AbstractModel):
     _inherit = 'rolsa.abstract.reporte_account_invoice'
 
     nombre_reporte = 'rolsa.reporte_account_invoice7'
+
+class ReportInvoice8(models.AbstractModel):
+    _name = 'report.rolsa.reporte_account_invoice8'
+    _inherit = 'rolsa.abstract.reporte_account_invoice'
+
+    nombre_reporte = 'rolsa.reporte_account_invoice8'
+
+class ReportInvoice9(models.AbstractModel):
+    _name = 'report.rolsa.reporte_account_invoice9'
+    _inherit = 'rolsa.abstract.reporte_account_invoice'
+
+    nombre_reporte = 'rolsa.reporte_account_invoice9'
+
+class ReportInvoice10(models.AbstractModel):
+    _name = 'report.rolsa.reporte_account_invoice10'
+    _inherit = 'rolsa.abstract.reporte_account_invoice'
+
+    nombre_reporte = 'rolsa.reporte_account_invoice10'

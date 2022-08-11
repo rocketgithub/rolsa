@@ -121,7 +121,7 @@
 
                         <!-- IVA 13% o IVA12% -->
                         <div style="position: absolute; top: 19.5cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="impuesto_iva+impuesto_isv_13" t-options="{'widget': 'float', 'precision': 2}"/>
+                            <span t-esc="impuesto_iva" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- Subtotal -->
@@ -142,7 +142,7 @@
 
                         <!-- VTAS. TOTALES -->
                         <div style="position: absolute; top: 22.5cm; left: 22.5cm; font-size: 90%; font-weight:bold; width: 1.9cm" class="text-right">
-                            <span t-esc="(o.amount_untaxed_signed+impuesto_iva+impuesto_isv_13)-retencion_iva" t-options="{'widget': 'float', 'precision': 2}"/>
+                            <span t-esc="(o.amount_untaxed_signed+impuesto_iva+impuesto_isv_13)+retencion_iva" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                     </div>
