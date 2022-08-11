@@ -17,10 +17,10 @@
                           MANAGUA,
                       </div>
                       <div style="font-size: 100%; position: absolute; top: 10.4cm; left: 19.3cm">
-                          <span t-esc="o.date.day"/>
+                          <span t-esc="o.date.day"/> de 
                       </div>
                       <div style="font-size: 100%; position: absolute; top: 10.4cm; left: 21.5cm">
-                          <span t-esc="o.date.month"/>
+                          <span t-esc="o.date.month"/> de
                       </div>
                       <div style="font-size: 100%; position: absolute; top: 10.4cm; left: 23.7cm">
                           <span t-esc="o.date.year"/>
@@ -28,14 +28,14 @@
                       
                       
                       <div style="font-size: 110%; position: absolute; top: 12.2cm; left: 19.5cm">
-                          <span t-esc="'{0:,.2f}'.format(o.amount)"/>
+                          US$: <span t-esc="'{0:,.2f}'.format(o.amount)"/>
                       </div>
     
                       <div style="font-size: 129%; position: absolute; top: 12.2cm; left: 3.1cm; width: 19cm">
-                          <span t-esc="o.nombre_impreso or o.partner_id.name"/>
+                          PAGUESE A: <span t-esc="o.nombre_impreso or o.partner_id.name"/>
                       </div>
                       <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 13.2cm; left: 3.1cm; width: 20cm">
-                          <span t-esc="a_letras(o.amount)"/>
+                          LA SUMA DE: <span t-esc="a_letras(o.amount)"/>
                       </div>
                       <div t-if="o.no_negociable == True" style="font-size: 130%; position: absolute; top: 17cm; left: 13cm">
                           <span>NO  NEGOCIABLE</span>
