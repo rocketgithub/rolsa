@@ -148,7 +148,7 @@
 
         <report
             id="rolsa_account_payment7"
-            string="Voucher 7"
+            string="COMPROBANTE DE PAGO NICARAGUA"
             model="account.payment"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_payment7"
