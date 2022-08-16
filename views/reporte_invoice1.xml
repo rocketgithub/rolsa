@@ -67,7 +67,7 @@
                         <t t-set="impuesto_cesc" t-value="impuestos(o)['cesc_sv_5']"/>
                         <t t-set="retencion_iva" t-value="impuestos(o)['retencion_iva']"/>
                         <t t-set="impuesto_isv_13" t-value="impuestos(o)['isv_13']"/>
-                        <div style="position: absolute; top: 8cm; left: 1cm">
+                        <div style="position: absolute; top: 7.7cm; left: 1cm">
                         <table>
                             <tbody>
                                 <tr t-foreach="o.invoice_line_ids" t-as="l">
@@ -86,6 +86,10 @@
                                     <!-- precio unitario sin umpuesto-->
                                     <td style="width: 1.9cm; font-size: 80%; font-weight:bold" class="text-right">
                                         <span t-esc="l.price_subtotal / l.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    </td>
+                                    <td style="width: 1.9cm">
+                                    </td>
+                                    <td style="width: 1.9cm">
                                     </td>
 
                                     <!-- ventas no sujetas -->
