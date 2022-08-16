@@ -84,6 +84,10 @@
                                         <td style="width: 1.2cm; font-size: 80%;text-align: right; font-weight:bold">
                                             <span t-esc="l.price_total/l.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
                                         </td>
+                                        <td style="width: 1.2cm">
+                                        </td>
+                                        <td style="width: 1.2cm">
+                                        </td
                                         <!-- ventas no sujetas -->
                                         <!-- <td style="width: 1.3cm; font-size: 80%; font-weight:bold" class="text-right">
                                             <span t-esc="total_linea(l)['ventas_no_sujetas']" t-options="{'widget': 'float', 'precision': 2}"/>
