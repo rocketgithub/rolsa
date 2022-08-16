@@ -8,7 +8,7 @@
 
                       <!-- Pedido no. -->
                       <div style="position: absolute; top: 3.7cm; left: 1cm; font-size: 110%; font-weight:bold; width: 2cm">
-                        p<span style="font-family: monospace!important" t-field="o.invoice_origin"/>
+                        <span style="font-family: monospace!important" t-field="o.invoice_origin"/>
                       </div>
 
                       <!-- vendedor. -->
@@ -21,7 +21,7 @@
                       <!-- condiciones de pago -->
 
                       <div style="position: absolute; top: 3.7cm; left: 10.5cm; font-size: 110%; font-weight:bold; width: 3cm">
-                        c5 <t t-if="o.invoice_payment_term_id">
+                        <t t-if="o.invoice_payment_term_id">
                             <span style="font-family: monospace!important" t-field="o.invoice_payment_term_id.name"/>
                         </t>
                       </div>
