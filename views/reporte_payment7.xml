@@ -40,30 +40,31 @@
                       <div t-if="o.no_negociable == True" style="font-size: 130%; position: absolute; top: 17cm; left: 13cm">
                           <span>NO  NEGOCIABLE</span>
                       </div>
-                      <div style="font-size: 110%; position: absolute; top: 20cm; left: 2cm; width: 15cm">
+                      <div style="font-size: 110%; position: absolute; top: 18.5cm; left: 2cm; width: 15cm">
                           DESCRIPCION:  <span t-field="o.descripcion"/>
                       </div>
                       
-                      <div style="font-size: 110%; position: absolute; top: 35cm; left: 2cm; width: 15cm">
+                      <div style="font-size: 110%; position: absolute; top: 33.7cm; left: 2cm; width: 15cm">
                           MEMO:  <span t-field="o.ref"/>
                       </div>
+                     
     
                       
                       
-                      <div style="position: absolute; top: 37cm; left: 2cm;font-size: 110%;">
+                      <div style="position: absolute; top: 36cm; left: 2cm;font-size: 110%;">
                       <span t-field="user.name"/>
                       </div>
                       
-                      <div style="position: absolute; top: 25cm; left: 2cm;font-size: 110%">
+                      <div style="position: absolute; top: 23cm; left: 2cm;font-size: 110%">
                           <table>
                               <tbody>
                                   <tr t-foreach="o.move_id.line_ids" t-as="l">
                                       <td style="width: 2cm">
                                           <span t-field="l.account_id.code"/>
                                       </td>
-                                      <td style="width: 2cm">
+                                      <td style="width: 4cm">
                                       </td>
-                                      <td style="width: 10cm">
+                                      <td style="width: 11cm">
                                           <span t-field="l.account_id.name"/>
                                       </td>
                                       <td style="width: 3cm">
@@ -72,7 +73,7 @@
                                           <span t-field="l.debit" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                                       </td>
                                       
-                                      <td style="width: 2cm" class="text-right">
+                                      <td style="width: 3.5cm" class="text-right">
                                           <span t-field="l.credit" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                                       </td>
                                   </tr>
@@ -80,18 +81,18 @@
                           </table>
                       </div>
     
-                      <div style="position: absolute; top: 35cm; left: 1.3cm;font-size: 110%;">
+                      <div style="position: absolute; top: 34.5cm; left: 1.3cm;font-size: 110%;">
                           <table>
                               <tbody>
                                   <tr>
-                                      <td style="width: 18.5cm">
+                                      <td style="width: 20.5cm">
                                       </td>
                                       <td style="width: 2.9cm" class="text-right">
                                           <span t-esc="totales(o)['debito']" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                                       </td>
                                       <td style="width: 0.5cm">
                                       </td>
-                                      <td style="width: 2cm" class="text-right">
+                                      <td style="width: 3cm" class="text-right">
                                           <span t-esc="totales(o)['credito']" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
                                       </td>
                                   </tr>
