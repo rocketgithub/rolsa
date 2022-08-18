@@ -10,10 +10,10 @@
               <div class="article">
                   <div class="page">
     
-                      <div style="font-size: 130%; position: absolute; top: 3.1cm; left: 12cm">
+                      <div style="font-size: 130%; position: absolute; top: 3.4cm; left: 12cm">
                           SAN  SALVADOR, <span t-field="o.date"/>
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.1cm; left: 23cm">
+                      <div style="font-size: 130%; position: absolute; top: 3.4cm; left: 23cm">
                           <span t-esc="'{0:,.2f}'.format(o.amount)"/>
                       </div>
     
