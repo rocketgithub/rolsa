@@ -10,22 +10,22 @@
               <div class="article">
                   <div class="page">
     
-                      <div style="font-size: 130%; position: absolute; top: 3.5cm; left: 11cm">
+                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 11cm">
                           SAN  SALVADOR, 
                       </div>
-                       <div style="font-size: 130%; position: absolute; top: 3.5cm; left: 15.9cm">
+                       <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 15.9cm">
                           <span t-esc="o.date.day"/>
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.5cm; left: 16.8cm">
+                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 16.8cm">
                           de
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.5cm; left: 17.7cm">
+                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 17.7cm">
                           <span t-esc="o.date.month"/>
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.5cm; left: 20cm">
+                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 20cm">
                           <span t-esc="o.date.year"/>
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.5cm; left: 23cm">
+                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 23cm">
                           <span t-esc="'{0:,.2f}'.format(o.amount)"/>
                       </div>
     
