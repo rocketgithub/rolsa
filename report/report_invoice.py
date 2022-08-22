@@ -158,3 +158,9 @@ class ReportInvoice10(models.AbstractModel):
     _inherit = 'rolsa.abstract.reporte_account_invoice'
 
     nombre_reporte = 'rolsa.reporte_account_invoice10'
+
+class ReportInvoice11(models.AbstractModel):
+    _name = 'report.rolsa.reporte_account_invoice11'
+    _inherit = 'rolsa.abstract.reporte_account_invoice'
+
+    nombre_reporte = 'rolsa.reporte_account_invoice11'

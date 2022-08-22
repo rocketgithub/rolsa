@@ -23,6 +23,7 @@
         'views/reporte_invoice8.xml',
         'views/reporte_invoice9.xml',
         'views/reporte_invoice10.xml',
+        'views/reporte_invoice11.xml',
         'views/reporte_payment1.xml',
         'views/reporte_payment2.xml',
         'views/reporte_payment3.xml',

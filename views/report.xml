@@ -13,11 +13,20 @@
 
         <report
             id="rolsa_account_invoice2"
-            string="Factura Consumidor final  El Salvador"
+            string="Factura Consumidor Final El Salvador"
             model="account.move"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_invoice2"
             name="rolsa.reporte_account_invoice2"
+        />
+        
+        <report
+            id="rolsa_account_invoice11"
+            string="Factura No Exenta El Salvador"
+            model="account.move"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_invoice11"
+            name="rolsa.reporte_account_invoice11"
         />
 
         <report
@@ -31,7 +40,7 @@
 
         <report
             id="rolsa_account_invoice4"
-            string="Nota de credito El Salvador"
+            string="Nota de Credito El Salvador"
             model="account.move"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_invoice4"
