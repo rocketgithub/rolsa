@@ -22,7 +22,7 @@
         
         <report
             id="rolsa_account_invoice11"
-            string="Factura No Exenta El Salvador"
+            string="Factura Exenta El Salvador"
             model="account.move"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_invoice11"
