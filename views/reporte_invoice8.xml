@@ -11,41 +11,41 @@
                           </div>
 
                           <!-- direccion -->
-                          <div style="position: absolute; top: 5.6cm; left: 4.5cm; font-size: 110%; font-weight:bold; width: 15cm">
+                          <div style="position: absolute; top: 5.4cm; left: 4.5cm; font-size: 110%; font-weight:bold; width: 15cm">
                             <span style="font-family: monospace!important" t-field="o.partner_id.street"/>, <span style="font-family: monospace!important" t-field="o.partner_id.street2"/>
                           </div>
 
                           <!-- Municipio -->
-                          <div style="position: absolute; top: 6.6cm; left: 4.5cm; font-size: 110%; font-weight:bold; width: 3cm">
+                          <div style="position: absolute; top: 6.4cm; left: 4.5cm; font-size: 110%; font-weight:bold; width: 3cm">
                               <t t-if="o.partner_id.city">
                                   <span style="font-family: monospace!important" t-field="o.partner_id.city"/>
                               </t>
                           </div>
 
                           <!-- Departamento -->
-                          <div style="position: absolute; top: 7.5cm; left: 10cm; font-size: 110%; font-weight:bold; width: 3cm">
+                          <div style="position: absolute; top: 7.3cm; left: 10cm; font-size: 110%; font-weight:bold; width: 3cm">
                               <t t-if="o.partner_id.state_id">
                                   dep<span style="font-family: monospace!important" t-field="o.partner_id.state_id.name"/>
                               </t>
                           </div>
 
                           <!-- No. RUC -->
-                          <div style="position: absolute; top: 4.5cm; left: 20cm; font-size: 110%; font-weight:bold; width: 4cm">
+                          <div style="position: absolute; top: 4.3cm; left: 20cm; font-size: 110%; font-weight:bold; width: 4cm">
                               <span style="font-family: monospace!important" t-field="o.partner_id.vat"/>
                           </div>
 
                           <!-- Fecha -->
-                          <div style="position: absolute; top: 5.5cm; left: 20cm; font-size: 110%; font-weight:bold; width: 3cm">
+                          <div style="position: absolute; top: 5.3cm; left: 20cm; font-size: 110%; font-weight:bold; width: 3cm">
                               <span style="font-family: monospace!important" t-field="o.invoice_date"/>
                           </div>
 
                           <!-- FORMA DE PAGO -->
-                          <div style="position: absolute; top: 6.5cm; left: 23Cm; font-size: 110%; font-weight:bold; width: 2cm">
+                          <div style="position: absolute; top: 6.3cm; left: 20.6Cm; font-size: 110%; font-weight:bold; width: 2cm">
                               <t t-if="o.invoice_payment_term_id">
                                   <span style="font-family: monospace!important" t-field="o.invoice_payment_term_id.name"/>
                               </t>
                           </div>
-                          <div style="position: absolute; top: 16.6cm; left: 4cm;font-size: 110%;">
+                          <div style="position: absolute; top: 15.5cm; left: 4cm;font-size: 110%;">
                           <span t-field="user.name"/>
                           </div>
 
@@ -59,19 +59,19 @@
                                       <td style="width: 2cm; font-size: 110%; font-weight:bold">
                                           <span t-field="l.quantity"/>
                                       </td>
-                                      <td style="width: 1cm">
+                                      <td style="width: 0.5cm">
                                       </td>
                                       <td style="width: 15cm; font-size: 110%; font-weight:bold">
                                           <span t-esc="l.name"/>
                                       </td>
                                      
                                       <!-- precio unitario sin umpuesto-->
-                                      <td style="width: 2cm; font-size: 110%; font-weight:bold" class="text-right">
+                                      <td style="width: 1.7cm; font-size: 110%; font-weight:bold" class="text-right">
                                           <span t-esc="l.price_subtotal / l.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
                                       </td>
 
                                       <!-- ventas gravadas -->
-                                      <td style="width: 3.1cm; font-size: 110%; font-weight:bold" class="text-right">
+                                      <td style="width: 2.8cm; font-size: 110%; font-weight:bold" class="text-right">
                                           <span t-esc="l.price_subtotal" t-options="{'widget': 'float', 'precision': 2}"/>
                                           <t t-set="subtotal_sin_descuento" t-value="subtotal_sin_descuento + (l.price_unit / l.quantity)"/>
                                       </td>
@@ -84,28 +84,28 @@
                         </div>
 
                         <!-- A LETRAS EL TOTAL -->
-                        <P><div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 15.1cm; left: 3.2cm; font-weight:bold; width: 15cm">
-                            <span t-esc="a_letras_dolares(o.amount_total)"/>
+                        <P><div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 14.1cm; left: 3.2cm; font-weight:bold; width: 15cm">
+                            <span t-esc="a_letras(o.amount_total)"/> CORDOBAS
                         </div></P>
 
 
                         <!-- SUBTOTAL -->
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 15.1cm; left: 23cm; font-weight:bold; width: 3cm">
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 14.1cm; left: 22cm; font-weight:bold; width: 3cm">
                             <span t-esc="o.amount_untaxed_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- Descuento -->
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 15.8cm; left: 23cm; font-weight:bold; width: 3cm">
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 14.8cm; left: 22cm; font-weight:bold; width: 3cm">
                             <span t-esc="descuento" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- Impuesto -->
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 16.5cm; left: 23cm; font-weight:bold; width: 3cm">
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 15.5cm; left: 22cm; font-weight:bold; width: 3cm">
                             <span t-field="o.amount_tax_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
                         <!-- Gran total -->
-                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 17.2cm; left: 23cm; font-weight:bold; width: 3cm">
+                        <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 16.2cm; left: 22cm; font-weight:bold; width: 3cm">
                             <span t-field="o.amount_total_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
                     </div>
