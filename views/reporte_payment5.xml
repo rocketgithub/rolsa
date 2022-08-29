@@ -10,29 +10,29 @@
               <div class="article">
                   <div class="page">
     
-                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 11cm">
+                      <div style="font-size: 110%; position: absolute; top: 3.8cm; left: 11cm">
                           SAN  SALVADOR, 
                       </div>
-                       <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 15.9cm">
+                       <div style="font-size: 110%; position: absolute; top: 3.8cm; left: 15.9cm">
                           <span t-esc="o.date.day"/>
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 16.8cm">
+                      <div style="font-size: 110%; position: absolute; top: 3.8cm; left: 16.8cm">
                           de
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 17.7cm">
+                      <div style="font-size: 110%; position: absolute; top: 3.8cm; left: 17.7cm">
                           <span t-esc="o.date.month"/>
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 20cm">
+                      <div style="font-size: 110%; position: absolute; top: 3.8cm; left: 20cm">
                           <span t-esc="o.date.year"/>
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 3.8cm; left: 23cm">
+                      <div style="font-size: 110%; position: absolute; top: 3.8cm; left: 23cm">
                           <span t-esc="'{0:,.2f}'.format(o.amount)"/>
                       </div>
     
-                      <div style="font-size: 130%; position: absolute; top: 4.5cm; left: 10.5cm; width: 19cm">
+                      <div style="font-size: 110%; position: absolute; top: 4.5cm; left: 10.5cm; width: 19cm">
                           <span t-esc="o.nombre_impreso or o.partner_id.name"/>
                       </div>
-                      <div style="font-size: 130%; text-transform: uppercase; position: absolute; top: 5.4cm; left: 11cm; width: 20cm">
+                      <div style="font-size: 110%; text-transform: uppercase; position: absolute; top: 5.4cm; left: 11cm; width: 20cm">
                           <span t-esc="a_letras(o.amount)"/>
                       </div>
                       <div t-if="o.no_negociable == True" style="font-size: 130%; position: absolute; top: 8.7cm; left: 14.6cm">
@@ -56,17 +56,17 @@
                       
                       
                       
-                      <div style="font-size: 130%; position: absolute; top: 28cm; left: 2cm; width: 15cm">
+                      <div style="font-size: 100%; position: absolute; top: 28cm; left: 2cm; width: 15cm">
                           MEMO:  <span t-field="o.ref"/>
                       </div>
-                      <div style="font-size: 130%; position: absolute; top: 29cm; left: 2cm; width: 15cm">
+                      <div style="font-size: 100%; position: absolute; top: 29cm; left: 2cm; width: 15cm">
                           NOMBRE  DE  LA  EMPRESA:  <span t-esc="o.partner_id.name"/>
                       </div>
                       <div style="position: absolute; top: 35.5cm; left: 4cm;font-size: 100%;">
                       <span t-field="user.name"/>
                       </div>
     
-                      <div style="position: absolute; top: 17cm; left: 2cm;font-size: 130%;">
+                      <div style="position: absolute; top: 17cm; left: 2cm;font-size: 100%;">
                           <table>
                               <tbody>
                                   <tr t-foreach="o.move_id.line_ids" t-as="l">
@@ -92,7 +92,7 @@
                           </table>
                       </div>
     
-                      <div style="position: absolute; top: 30cm; left: 1.3cm;font-size: 130%;">
+                      <div style="position: absolute; top: 30cm; left: 1.3cm;font-size: 100%;">
                           <table>
                               <tbody>
                                   <tr>
