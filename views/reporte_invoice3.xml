@@ -7,12 +7,12 @@
                     <div class="page" style="font-size: 85%">
 
                       <!-- Pedido no. -->
-                      <div style="position: absolute; top: 2.6cm; left: 2cm; font-size: 90%; font-weight:bold; width: 3cm">
+                      <div style="position: absolute; top: 2.9cm; left: 1cm; font-size: 80%; font-weight:bold; width: 3cm">
                         <span style="font-family: monospace!important" t-field="o.invoice_origin"/>
                       </div>
 
                       <!-- vendedor. -->
-                      <div style="position: absolute; top: 2.6cm; left: 3.5cm; font-size: 90%; font-weight:bold; width: 5cm">
+                      <div style="position: absolute; top: 2.9cm; left: 3.5cm; font-size: 80%; font-weight:bold; width: 5cm">
                         <span style="font-family: monospace!important" t-field="o.invoice_user_id.name"/>
                       </div>
 
@@ -20,76 +20,76 @@
 
                       <!-- condiciones de pago -->
 
-                      <div style="position: absolute; top: 2.6cm; left: 10cm; font-size: 90%; font-weight:bold; width: 3cm">
+                      <div style="position: absolute; top: 2.9cm; left: 10cm; font-size: 80%; font-weight:bold; width: 3cm">
                         <t t-if="o.invoice_payment_term_id">
                             <span style="font-family: monospace!important" t-field="o.invoice_payment_term_id.name"/>
                         </t>
                       </div>
 
                       <!-- codigo cliente -->
-                      <div style="position: absolute; top: 2.6cm; left: 14cm; font-size: 90%; font-weight:bold; width: 3cm">
+                      <div style="position: absolute; top: 2.9cm; left: 14cm; font-size: 80%; font-weight:bold; width: 3cm">
                         <span style="font-family: monospace!important" t-field="o.partner_id.ref"/>
                       </div>
 
                         <!-- fecha -->
-                        <div style="position: absolute; top: 2.6cm; left: 17.5cm; font-size: 90%; font-weight:bold">
+                        <div style="position: absolute; top: 2.9cm; left: 17.5cm; font-size: 80%; font-weight:bold">
                             <span t-field="o.invoice_date"/>
                         </div>
 
 
                         <!-- nombre cliente -->
-                        <div style="position: absolute; top: 3.2cm; left: 2cm; font-size: 90%; font-weight:bold; width: 14cm">
+                        <div style="position: absolute; top: 3.7cm; left: 2cm; font-size: 80%; font-weight:bold; width: 14cm">
                           <span style="font-family: monospace!important" t-field="o.partner_id.name"/>
                         </div>
                         <!-- direccion -->
-                        <div style="position: absolute; top: 3.6cm; left: 2.4cm; font-size: 80%; width: 14cm; font-weight:bold">
+                        <div style="position: absolute; top: 4.2cm; left: 2.4cm; font-size: 70%; width: 14cm; font-weight:bold">
                             <span t-esc="o.partner_id.street"/>  <span t-esc="o.partner_id.street2"/>
                         </div>
                         <!-- Municipio -->
-                        <div style="position: absolute; top: 4.1cm; left: 3cm; font-size: 90%; font-weight:bold">
+                        <div style="position: absolute; top: 4.7cm; left: 3cm; font-size: 80%; font-weight:bold">
                         <span style="font-family: monospace!important" t-field="o.partner_id.city"/>
                         </div>
 
                         <!-- Departamento -->
-                        <div style="position: absolute; top: 4.1cm; left: 6cm; font-size: 90%; font-weight:bold">
+                        <div style="position: absolute; top: 4.7cm; left: 6cm; font-size: 80%; font-weight:bold">
                         <span style="font-family: monospace!important" t-field="o.partner_id.state_id.name"/>
                         </div>
                         <!-- registro no -->
-                        <div style="position: absolute; top: 3.2cm; left: 15cm; font-size: 80%; width: 3cm; font-weight:bold">
+                        <div style="position: absolute; top: 3.7cm; left: 15cm; font-size: 70%; width: 3cm; font-weight:bold">
                             <span t-esc="o.partner_id.dui"/>
                         </div>
                         <!-- nit cliente -->
-                        <div style="position: absolute; top: 3.6cm; left: 15cm; font-size: 90%; font-weight:bold">
+                        <div style="position: absolute; top: 4.2cm; left: 15cm; font-size: 80%; font-weight:bold">
                             <span t-field="o.partner_id.vat"/>
                         </div>
                         
                         
                         
 
-                        <div style="position: absolute; top: 5.3cm; left: 0.5cm">
+                        <div style="position: absolute; top: 6cm; left: 1cm">
                             <table>
                                 <tbody>
                                     <tr t-foreach="o.invoice_line_ids" t-as="l">
                                         <!-- columna cantidad -->
-                                        <td style="width: 1cm; font-size: 80%; font-weight:bold">
+                                        <td style="width: 0.5cm; font-size: 70%; font-weight:bold">
                                             <span t-field="l.quantity" t-options="{'widget': 'float', 'precision': 0}"/>
                                         </td>
                                         <!-- columna codigo -->
-                                        <td style="width: 1.5cm; font-size: 80%; font-weight:bold">
+                                        <td style="width: 1.5cm; font-size: 70%; font-weight:bold">
                                         <span t-field="l.product_id.default_code"/>
                                         </td>
                                         <!-- columna descripcion -->
-                                        <td style="width: 11.2cm; font-size: 80%; font-weight:bold">
+                                        <td style="width: 11.2cm; font-size: 70%; font-weight:bold">
                                         <span t-esc="producto(l.name)"/>
                                        </td>
                                       
                                        <!-- columna precio unitario -->
-                                        <td style="width: 2.7cm; font-size: 80%;text-align: right; font-weight:bold">
+                                        <td style="width: 2.7cm; font-size: 70%;text-align: right; font-weight:bold">
                                             <span t-esc="l.price_unit" t-options="{'widget': 'float', 'precision': 2}"/>
                                         </td>
 
                                         <!-- columna ventas afectas -->
-                                        <td style="width: 3.3cm; font-size: 80%; font-weight:bold" class="text-right">
+                                        <td style="width: 3.3cm; font-size: 70%; font-weight:bold" class="text-right">
                                             <span t-esc="l.price_total" t-options="{'widget': 'float', 'precision': 2}"/>
                                         </td>
                                     </tr>
@@ -100,12 +100,12 @@
 
 
                         <!-- A LETRAS EL TOTAL -->
-                        <div style="font-size: 80%; text-transform: uppercase; position: absolute; top: 13.1cm; left: 1.5cm; width: 20cm; font-weight:bold">
+                        <div style="font-size: 70%; text-transform: uppercase; position: absolute; top: 13.5cm; left: 1.5cm; width: 20cm; font-weight:bold">
                             <span t-esc="a_letras_dolares(o.amount_total)"/>
                         </div>
 
                         <!-- TOTAL -->
-                        <div style="position: absolute; top: 13.1cm; left: 19cm; font-size: 80%; font-weight:bold">
+                        <div style="position: absolute; top: 13.5cm; left: 18.5cm; font-size: 70%; font-weight:bold">
                             <span t-esc="o.amount_total" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
 
