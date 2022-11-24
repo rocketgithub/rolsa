@@ -181,6 +181,15 @@
             file="rolsa.reporte_account_payment9"
             name="rolsa.reporte_account_payment9"
         />
+        
+        <report
+            id="rolsa_account_payment10"
+            string="Recibo"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment10"
+            name="rolsa.reporte_account_payment10"
+        />
 
     </data>
 </odoo>

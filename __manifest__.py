@@ -33,6 +33,7 @@
         'views/reporte_payment7.xml',
         'views/reporte_payment8.xml',
         'views/reporte_payment9.xml',
+        'views/reporte_payment10.xml',
         'views/account_view.xml',
     ],
     'installable': True,

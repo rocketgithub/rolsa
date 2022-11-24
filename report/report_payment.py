@@ -63,3 +63,7 @@ class ReportPayment8(models.AbstractModel):
 class ReportPayment9(models.AbstractModel):
     _name = 'report.rolsa.reporte_account_payment9'
     _inherit = 'rolsa.abstract.reporte_account_payment'
+    
+class ReportPayment10(models.AbstractModel):
+    _name = 'report.rolsa.reporte_account_payment10'
+    _inherit = 'rolsa.abstract.reporte_account_payment'
