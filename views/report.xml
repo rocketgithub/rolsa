@@ -184,7 +184,7 @@
         
         <report
             id="rolsa_account_payment10"
-            string="Recibo"
+            string="ROC NICARAGUA"
             model="account.payment"
             report_type="qweb-pdf"
             file="rolsa.reporte_account_payment10"
