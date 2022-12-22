@@ -22,6 +22,9 @@
                       <div style="font-size: 129%; position: absolute; top: 7.4cm; left: 3.1cm; width: 19cm">
                         <span t-esc="o.nombre_impreso or o.partner_id.name"/>
                       </div>
+                      <div style="position: absolute; top: 7.4cm; left: 21cm; font-size: 129%; width: 4cm">
+                         <span style="font-family: monospace!important" t-field="o.partner_id.vat"/>
+                      </div>
                       <div style="font-size: 100%;position: absolute; top: 7.4cm; left: 15cm; width: 3cm">
                           <span t-field="o.check_number"/>
                       </div>
