@@ -36,7 +36,7 @@
                           </div>
 
                           <!-- direccion -->
-                          <div style="position: absolute; top: 6cm; left: 4cm; font-size: 110%; font-weight:bold; width: 18cm">
+                          <div style="position: absolute; top: 5.9cm; left: 4cm; font-size: 110%; font-weight:bold; width: 18cm">
                             <span style="font-family: monospace!important" t-field="o.partner_id.street"/>, <span style="font-family: monospace!important" t-field="o.partner_id.street2"/>
                             <t t-if="o.partner_id.city">
                                 , <span style="font-family: monospace!important" t-field="o.partner_id.city"/>
@@ -48,21 +48,21 @@
 
 
                           <!-- Palabra ACREDITADO fijo -->
-                          <div style="position: absolute; top: 7.6cm; left: 8cm; font-size: 110%; font-weight:bold; width: 3cm">
+                          <div style="position: absolute; top: 7.5cm; left: 8cm; font-size: 110%; font-weight:bold; width: 3cm">
                             <p style="font-family: monospace!important">
                                 DEBITADO
                             </p>
                           </div>
 
                           <!-- A LETRAS EL TOTAL -->
-                          <P><div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 8.5cm; left: 2.5cm; font-weight:bold; width: 18cm">
-                              <span t-esc="a_letras_dolares(o.amount_total)"/>
+                          <P><div style="font-size: 90%; text-transform: uppercase; position: absolute; top: 8.4cm; left: 2.5cm; font-weight:bold; width: 18cm">
+                              <span t-esc="a_letras(o.amount_total)"/>
                           </div></P>
 
 
                           <t t-set="descuento" t-value="0"/>
                           <t t-set="subtotal_sin_descuento" t-value="0"/>
-                          <div style="position: absolute; top: 10.1cm; left: 2cm">
+                          <div style="position: absolute; top: 9.6cm; left: 1.5cm">
                           <table>
                               <tbody>
                                   <tr t-foreach="o.invoice_line_ids" t-as="l">
@@ -87,7 +87,7 @@
                                   </tbody>
                             </table>
                           </div>
-                          <div style="position: absolute; top: 11.8cm; left: 17.9cm">
+                          <div style="position: absolute; top: 11.3cm; left: 17.9cm">
                           <table>
                               <tbody>
                                   <tr>
@@ -96,7 +96,7 @@
                                         <td style="font-size: 110%"><b>Subtotal</b></td>
                                         <td style="windth: 1cm">
                                         </td>
-                                        <td class="text-right"><div class="text-right" style="font-size: 110%; font-weight:bold; width: 4.1cm" >
+                                        <td class="text-right"><div class="text-right" style="font-size: 110%; font-weight:bold; width: 4.1cm">
                                         <span t-field="o.amount_untaxed_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                                         </div>
                                         </td>
@@ -107,7 +107,7 @@
                                         <td style="font-size: 110%"><b>IVA</b></td>
                                         <td style="windth: 1cm">
                                         </td>
-                                        <td class="text-right"><div class="text-right" style="font-size: 110%; font-weight:bold; width: 4.1cm" >
+                                        <td class="text-right"><div class="text-right" style="font-size: 110%; font-weight:bold; width: 4.1cm">
                                         <span t-field="o.amount_tax_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                                         </div>
                                         </td>
@@ -118,7 +118,7 @@
                                         <td style="font-size: 110%"><b>Total</b></td>
                                         <td style="windth: 1cm">
                                         </td>
-                                        <td class="text-right"><div class="text-right" style="font-size: 110%; font-weight:bold; width: 4.1cm" >
+                                        <td class="text-right"><div class="text-right" style="font-size: 110%; font-weight:bold; width: 4.1cm">
                                         <span t-field="o.amount_total_signed" t-options="{'widget': 'float', 'precision': 2}"/>
                                         </div>
                                         </td>
