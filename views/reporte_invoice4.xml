@@ -141,7 +141,7 @@
 
                         <!-- VTA TOTAL -->
                         <div style="position: absolute; top: 12.7cm; left: 17.5cm; font-size: 76%; font-weight:bold; width: 2cm; text-align: right">
-                            <span t-esc="(o.amount_untaxed_signed+impuesto_iva+impuesto_isv_13)-retencion_iva" t-options="{'widget': 'float', 'precision': 2}"/>
+                            <span t-esc="(o.amount_untaxed_signed+impuesto_iva+impuesto_isv_13)+retencion_iva" t-options="{'widget': 'float', 'precision': 2}"/>
                         </div>
                     </div>
                 </div>
