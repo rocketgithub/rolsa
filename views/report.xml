@@ -19,7 +19,7 @@
             file="rolsa.reporte_account_invoice2"
             name="rolsa.reporte_account_invoice2"
         />
-        
+
         <report
             id="rolsa_account_invoice11"
             string="Factura Exenta El Salvador"
@@ -181,7 +181,7 @@
             file="rolsa.reporte_account_payment9"
             name="rolsa.reporte_account_payment9"
         />
-        
+
         <report
             id="rolsa_account_payment10"
             string="ROC NICARAGUA"
@@ -191,5 +191,13 @@
             name="rolsa.reporte_account_payment10"
         />
 
+        <report
+            id="rolsa_account_payment11"
+            string="VOUCHER CONTINUO 2"
+            model="account.payment"
+            report_type="qweb-pdf"
+            file="rolsa.reporte_account_payment11"
+            name="rolsa.reporte_account_payment11"
+        />
     </data>
 </odoo>
