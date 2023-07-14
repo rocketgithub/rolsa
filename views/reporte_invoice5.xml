@@ -6,7 +6,7 @@
                 <div class="article">
                     <div class="header" style="font-size: 80%">
                         <div class="izquierda" style="float:left">
-                            <img src="/web/binary/company_logo" style="width:200px;height:75px"/>
+                            <img t-if="o.company_id.logo" t-att-src="image_data_uri(o.company_id.logo)" style="width:200px;height:75px"/>
                         </div>
                         <div class="derecha" style="float:right">
                             <p style="text-align:center">
@@ -21,7 +21,7 @@
                         <div class="info1">
                             <div class="izquierda" style="float:left;border-radius: 36px / 12px;  border: solid 1px black;width:40%;text-align: center;padding: 0em 1em 0em 1em">
                                 Factura No. <br/>
-                                <span t-field="o.name"/>
+                                <span t-esc="o.name.replace('-','')"/>
                             </div>
                             <div class="derecha" style="float:right;border-radius: 36px / 12px;  border: solid 1px black;width:40%;text-align: left;padding: 0em 1em 0em 1em">
                                 Fecha de Emision: <span t-field="o.invoice_date" t-options="{'widget': 'date'}"/><br/>
